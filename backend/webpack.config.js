@@ -1,3 +1,5 @@
+var ZipPlugin = require('zip-webpack-plugin');
+
 module.exports = (options, webpack) => {
   const lazyImports = [
     '@nestjs/microservices/microservices-module',
@@ -25,6 +27,9 @@ module.exports = (options, webpack) => {
           return false;
         },
       }),
+      new ZipPlugin({
+        filename: 'lambda.zip'
+      })
     ],
   };
 };
