@@ -1,6 +1,10 @@
 resource "aws_apigatewayv2_api" "todos-api" {
   name          = "todos-api-tf-stack-${var.stage}"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_origins = ["https://${aws_cloudfront_distribution.todos.domain_name}"]
+  }
 }
 
 resource "aws_apigatewayv2_integration" "todos-lambda-api" {

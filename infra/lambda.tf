@@ -9,7 +9,7 @@ resource "aws_lambda_function" "lambda-api" {
 
   environment {
     variables = {
-      FRONTEND_URL = "http://localhost:3000"
+      FRONTEND_URL = "https://${aws_cloudfront_distribution.todos.domain_name}"
       TODO_TABLE   = aws_dynamodb_table.todo.name
     }
   }
