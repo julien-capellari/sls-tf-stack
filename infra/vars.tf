@@ -9,3 +9,8 @@ variable "stage" {
   default     = "dev"
   description = "Ressource group"
 }
+
+variable "profile" {
+  type    = string
+  default = "default"
+}
